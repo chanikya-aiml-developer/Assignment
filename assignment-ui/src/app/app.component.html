@@ -1,0 +1,45 @@
+<div id="layout-wrapper">
+  <div className="main-content">
+    <div className="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="mb-0 font-size-18">Update your details</h4>
+        </div>
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="formrow-name-input">First Name<span class="required">*</span></label>
+                      <input type="text" class="form-control" formControlName="firstName"
+                        [ngClass]="{ 'is-invalid': submitted && r.firstName.errors }" />
+                      <div *ngIf="submitted && r.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="r.firstName.errors.required">First Name is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="formrow-name-input">Last Name<span class="required">*</span></label>
+                      <input type="text" class="form-control" formControlName="lastName"
+                        [ngClass]="{ 'is-invalid': submitted && r.lastName.errors }" />
+                      <div *ngIf="submitted && r.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="r.lastName.errors.required">Last Name is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-primary w-md">Save</button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
