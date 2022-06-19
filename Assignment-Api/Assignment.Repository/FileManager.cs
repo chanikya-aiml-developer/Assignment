@@ -15,6 +15,7 @@ namespace Assignment.Repository
             lock (_lockTransaction)
             {
 
+
                 File.WriteAllTextAsync(path, text);
             }
         }
