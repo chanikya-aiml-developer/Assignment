@@ -9,6 +9,7 @@ namespace Assignment.Repository
 {
     public interface IFileRepository
     {
-        Task SaveToFile(List<UserModel> list);
+        Task<List<UserModel>> GetAllUsers();
+        void SaveUser(List<UserModel> list);
     }
 }

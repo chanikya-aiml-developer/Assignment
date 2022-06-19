@@ -24,22 +24,9 @@ namespace Assignment.Service
         }
         public async Task SaveUser(UserModel userModel)
         {
-            var filePath = Path.Combine(
-                 new string[] { _env.ContentRootPath, "wwwroot", "users.txt" });
-
-            var list = new List<UserModel>();
-
-            //if (File.Exists(filePath))
-            //{
-            //    var text = await File.ReadAllTextAsync(filePath);
-            //    list = JsonConvert.DeserializeObject<List<UserModel>>(text);
-            //}
-
+            var list = await _fileRepository.GetAllUsers();
             list.Add(userModel);
-            await _fileRepository.SaveToFile(list);
-
-            //var serilizedText = JsonConvert.SerializeObject(list);
-            //await File.WriteAllTextAsync(filePath, serilizedText);
+            _fileRepository.SaveUser(list);
 
         }
     }
