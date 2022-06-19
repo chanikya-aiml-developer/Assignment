@@ -14,12 +14,10 @@ namespace Assignment.Service
 {
     public class UserService : IUserService
     {
-        private readonly IHostingEnvironment _env;
         private readonly IFileRepository _fileRepository;
 
-        public UserService(IHostingEnvironment env, IFileRepository fileRepository)
+        public UserService( IFileRepository fileRepository)
         {
-            _env = env;
             _fileRepository = fileRepository;
         }
         public async Task SaveUser(UserModel userModel)
