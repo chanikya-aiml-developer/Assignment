@@ -1,3 +1,4 @@
+using Assignment.Repository;
 using Assignment.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,7 @@ namespace Assignment_Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Assignment_Api", Version = "v1" });
             });
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IFileRepository, FileRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

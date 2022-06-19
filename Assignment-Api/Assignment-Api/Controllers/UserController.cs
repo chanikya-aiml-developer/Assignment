@@ -25,12 +25,17 @@ namespace Assignment_Api.Controllers
         {
             try
             {
+                
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest("Please fill all mandatory fields");
+                }
                 await _iUserService.SaveUser(userModel);
                 return Ok(1);
             }
             catch (Exception ex)
             {
-                return BadRequest("Error while processing request");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error while processing request");
             }
         }
     }
